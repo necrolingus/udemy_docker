@@ -1,7 +1,7 @@
 # udemy_docker
 Repository for my Udemy docker course
 
-###Welcome
+### Welcome
 
 Here you will find all the docker commands, config files for e.g. Apache (you can create your own, but this will help you get started), and docker-compose files.
 
