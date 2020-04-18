@@ -1,0 +1,15 @@
+version: "3"
+services:
+    mongo_udemy:
+        image: mongo
+        container_name: mongodb_udemy
+        restart: always
+        environment:
+          - MONGO_INITDB_ROOT_USERNAME=root
+          - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PASSWORD}
+        expose:
+          - 27017
+        ports:
+          - "0.0.0.0:27020:27017"
+        volumes:
+          - ~/dev_stuff/docker_stuff/mongodb/mongodb-data:/data/db
