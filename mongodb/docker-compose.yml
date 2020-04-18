@@ -5,7 +5,7 @@ services:
         container_name: mongodb_udemy
         restart: always
         environment:
-          - MONGO_INITDB_ROOT_USERNAME=root
+          - MONGO_INITDB_ROOT_USERNAME=${ROOT_USER}
           - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PASSWORD}
         expose:
           - 27017
