@@ -1,0 +1,5 @@
+FROM httpd:latest
+MAINTAINER leigh
+COPY website/ /usr/local/apache2/htdocs/
+COPY config/httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY certs/ /etc/ssl/crt/

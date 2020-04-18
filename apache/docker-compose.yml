@@ -1,0 +1,13 @@
+version: "3"
+services:
+  apache:
+      container_name: apache-httpd
+      restart: unless-stopped
+      image: httpd:latest
+      volumes:
+        - ~/dev_stuff/docker_stuff/apache/website:/usr/local/apache2/htdocs/
+        - ~/dev_stuff/docker_stuff/apache/config/httpd.conf:/usr/local/apache2/conf/httpd.conf
+        - ~/dev_stuff/docker_stuff/apache/certs:/etc/ssl/crt/
+      ports:
+        - "20501:80"
+        - "20502:443"
