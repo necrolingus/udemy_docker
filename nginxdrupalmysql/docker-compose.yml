@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+  drupal_nginx_reverse:
+    image: nginx:alpine
+    volumes:
+      - ./nginx_conf/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8000:8000
+    restart: always
+
+
+  drupal:
+    depends_on:
+      - drupal_mysql
+    image: drupal:latest
+    volumes:
+      - drupal_modules:/var/www/html/modules
+      - drupal_profiles:/var/www/html/profiles
+      - drupal_themes:/var/www/html/themes
+      - drupal_sites:/var/www/html/sites
+    restart: always
+
+
+  drupal_mysql:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+
+volumes:
+  drupal_modules:
+  drupal_profiles:
+  drupal_themes:
+  drupal_sites:
+  db_data:
