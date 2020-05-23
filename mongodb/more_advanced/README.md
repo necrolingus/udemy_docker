@@ -12,3 +12,5 @@ Remember to rename env to .env when deploying and to create the mongodb-data fol
 This container is not exposed to the host. You can only connect to it from other containers or using the command below. This ensures it is not exposed on the internet
 
 docker exec -it mongodb_1 mongo --username NOT_ROOT_USER --password NOT_ROOT_PASS --authenticationDatabase expenses --host mongodb_1 --port 27017
+
+mongodb_1 is my mongodb service name in the docker-compose file
