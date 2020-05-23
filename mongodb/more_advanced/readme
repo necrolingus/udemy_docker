@@ -1,4 +1,4 @@
 In the docker-compose file we create several environment variables.
-These variables will be available to the init-mongo.sh script which mongo will run because we passed it in the volumes section
+These environment variables will be read by docker-compose and are available to the init-mongo.sh script which mongo will run because we passed it in the volumes section
 
 Remember to rename env to .env when deploying and to create the mongodb-data folder as well
