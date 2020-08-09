@@ -15,8 +15,8 @@ services:
    wordpress:
      depends_on:
        - mysql_wordpress
-     image: wordpress:latest
-     # ports:
+     image: wordpress:5.1.1-fpm-alpine
+     #ports:
        #- 80:80
      restart: unless-stopped
      environment:
@@ -33,13 +33,13 @@ services:
      image: nginx:stable-alpine
      restart: unless-stopped
      ports:
-       # - "80:80"
+       #- "80:80"
        - "443:443"
      volumes:
        - wordpress:/var/www/html
        - ./nginx-conf:/etc/nginx/conf.d
-       - /etc/letsencrypt/live/YOUR_DOMAIN.net:/etc/letsencrypt
-	   - /etc/letsencrypt/options-ssl-nginx.conf:/etc/nginx/conf.d/options-ssl-nginx.conf
+       - /etc/letsencrypt/:/etc/letsencrypt
+       - /etc/letsencrypt/options-ssl-nginx.conf:/etc/nginx/conf.d/options-ssl-nginx.conf
 
 volumes:
     wordpress:
