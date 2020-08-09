@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+   mysql_wordpress:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: unless-stopped
+     environment:
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+       MYSQL_USER: ${MYSQL_USER}
+       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+   wordpress:
+     depends_on:
+       - mysql_wordpress
+     image: wordpress:latest
+     # ports:
+       #- 80:80
+     restart: unless-stopped
+     environment:
+       WORDPRESS_DB_HOST: mysql_wordpress:3306
+       WORDPRESS_DB_USER: ${MYSQL_USER}
+       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+     volumes:
+       - wordpress:/var/www/html
+
+   webserver:
+     depends_on:
+       - wordpress
+     image: nginx:stable-alpine
+     restart: unless-stopped
+     ports:
+       - "80:80"
+       - "443:443"
+     volumes:
+       - wordpress:/var/www/html
+       - ./nginx-conf:/etc/nginx/conf.d
+       - /etc/letsencrypt/live/YOUR_DOMAIN.net:/etc/letsencrypt
+	   - /etc/letsencrypt/options-ssl-nginx.conf:/etc/nginx/conf.d/options-ssl-nginx.conf
+
+volumes:
+    wordpress:
+    db_data:
