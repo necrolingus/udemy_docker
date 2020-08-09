@@ -1,7 +1,5 @@
 ##### Remember you .env file like we always created.
 
-##### Certbot will automatically generate the SSL configs for the webserver you want to use
-
 ### Lets install Apache and Nginx certbot packages. We wont use Apache, but now you know how to install them
 sudo apt-get install python-certbot-nginx
 
@@ -16,18 +14,19 @@ certbot certonly --manual --preferred-challenges dns --server https://acme-v02.a
 
 Letsencrypt will ask you to add a TXT record. Add it then press Enter to continue. It will then ask you to add another one. Add it but now wait. Dont press Enter. Those records must propagate. If you press Enter and they have not propagated yet, you will need to restart the process.
 
-### Regenerate certs and config file
-Sometimes you want to regenerate your certs and sometimes you want to use a different web server maybe. This command will allow you to do both.
-
-certbot certonly -a nginx -d YOUR_DOMAIN.net
-
-You can replace -a with e.g. Apache if you want to
 
 ### Now look in /etc/letsencrypt/
-There you will find the conf file and also the following:
+There you will find the config file and also the following:
 
 /etc/letsencrypt/live/YOUR_DOMAIN.net/ which contains the certificate and private key files.
 
+##### Certbot will automatically generate the SSL configs for the webserver you want to use. By default it should generate apache, but what if you want an Nginx config file? We can do that using the below command
+
+
+### Regenerate certs and generate a new config file
+certbot certonly -a nginx -d YOUR_DOMAIN.net
+
+##### You can replace -a with e.g. Apache if you want to
 
 ### Cloudflare
 As a side note, if you're using cloudflare and your site goes into an infinite redirect loop, set your SSL to Full (Strict) otherwise Cloudflare will make a connection over port 80 which we don't want because we don't want to listen or serve over port 80, only 443.
