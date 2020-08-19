@@ -2,6 +2,10 @@
 ##### To learn more about certbot, you can go here: https://certbot.eff.org/
 
 ### Lets install Apache and Nginx certbot packages. We wont use Apache, but now you know how to install them
+sudo apt-get install certbot
+
+#### Install the relevant plugins for certbot
+
 sudo apt-get install python-certbot-nginx
 
 sudo apt-get install python-certbot-apache
