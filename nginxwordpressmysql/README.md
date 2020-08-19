@@ -24,6 +24,8 @@ certbot certonly --manual --preferred-challenges dns --server https://acme-v02.a
 --preferred-challenges: Use this option with the Manual flag to choose the challenge of your preference (http/dns). We used DNS
 
 
+##### Certbot online Manual: https://certbot.eff.org/docs/using.html?highlight=manual
+
 Letsencrypt will ask you to add a TXT record. Add it then press Enter to continue. It will then ask you to add another one. Add it but now wait. Dont press Enter. Those records must propagate. If you press Enter and they have not propagated yet, you will need to restart the process.
 
 
