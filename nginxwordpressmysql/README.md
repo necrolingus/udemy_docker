@@ -13,7 +13,16 @@ There are very good tutorials out there that shows how to automate literally eve
 ##### But lets do certbot manually so we can learn what it does.
 certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -d '*.YOUR_DOMAIN.net' -d YOUR_DOMAIN.net
 
-If you want to play around first, add the --staging flag to the above command so that you don't reach any potential request limits.
+--staging: If you want to play around first, add the --staging flag to the above command so that you don't reach any potential request limits.
+
+--manual: If you’d like to obtain a certificate running certbot on a machine other than your target webserver or perform the steps for domain validation yourself, you can use the manual plugin
+
+--server: By default, Certbot uses Let’s Encrypt’s production server at https://acme-v02.api.letsencrypt.org/. You can tell Certbot to use a different CA by providing --server
+
+--manual-public-ip-logging-ok: Automatically allows public IP logging (default: Ask)
+
+--preferred-challenges: Use this option with the Manual flag to choose the challenge of your preference (http/dns). We used DNS
+
 
 Letsencrypt will ask you to add a TXT record. Add it then press Enter to continue. It will then ask you to add another one. Add it but now wait. Dont press Enter. Those records must propagate. If you press Enter and they have not propagated yet, you will need to restart the process.
 
