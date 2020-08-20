@@ -41,6 +41,10 @@ There you will find the config file and also the following:
 
 
 ### Regenerate certs and generate a new config file
+If you do get an nginx error, make sure nginx is installed as certbot needs it to generate the config. You can install it using sudo apt-get nginx.
+
+If port 80 (the default port nginx uses) is already in use, do "sudo nano /etc/nginx/sites-enabled/default" and change port 80 to e.g. 40001 (there will be 2 lines right at the top where you should change it)
+
 certbot certonly -a nginx -d YOUR_DOMAIN.net
 
 ##### You can replace -a with e.g. Apache if you want to
