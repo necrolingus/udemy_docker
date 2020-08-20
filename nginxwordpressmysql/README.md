@@ -47,7 +47,7 @@ If port 80 (the default port nginx uses) is already in use, do "sudo nano /etc/n
 
 Then run this command: sudo certbot certonly -a nginx -d YOUR_DOMAIN.net
 
-And then if you want to stop and disable nginx on the host, you can run the following command:
+##### And then if you want to stop and disable nginx on the host, you can run the following commands:
 
 sudo service nginx stop
 
