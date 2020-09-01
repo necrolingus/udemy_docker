@@ -45,7 +45,8 @@ If you do get an nginx error, make sure nginx is installed on your host as certb
 
 If port 80 (the default port nginx uses) is already in use, do "sudo nano /etc/nginx/sites-enabled/default" and change port 80 to e.g. 40001 (there will be 2 lines right at the top where you should change it)
 
-##### Then run this command: sudo certbot certonly -a nginx -d YOUR_DOMAIN.net
+##### Then run this command: 
+sudo certbot certonly -a nginx -d YOUR_DOMAIN.net
 
 ##### And then if you want to stop and disable nginx on the host, you can run the following commands:
 
