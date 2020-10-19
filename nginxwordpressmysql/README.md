@@ -1,3 +1,7 @@
+## Update on renewing certificates
+##### You can run "certbot renew" and it will renew all certificates that expire in less than 30 days
+##### Running "certbot certificates" will show which certificates are being managed and their expiration dates
+
 ##### Remember you .env file like we always created.
 ##### To learn more about certbot, you can go here: https://certbot.eff.org/
 ##### Certbot online Manual: https://certbot.eff.org/docs/using.html?highlight=manual
