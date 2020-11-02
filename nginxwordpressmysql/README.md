@@ -2,7 +2,6 @@
 ##### You can run "certbot renew" and it will renew all certificates that expire in less than 30 days. But, if you want to use the DNS method or another method, you can still issue this command: certbot certonly --manual --preferred-challenges dns -d 'DOMAIN.net,*.DOMAIN.net'
 ##### Running "certbot certificates" will show which certificates are being managed and their expiration dates
 
-##### Remember you .env file like we always created.
 ##### To learn more about certbot, you can go here: https://certbot.eff.org/
 ##### Certbot online Manual: https://certbot.eff.org/docs/using.html?highlight=manual
 
