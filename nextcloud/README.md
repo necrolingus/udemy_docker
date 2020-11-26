@@ -1,12 +1,12 @@
-#### First time setup
+## First time setup
 Go to host_ip:8080
 
 Select maria/mysql as your database
 
-In Host enter db:3306
+In database host enter db:3306 (remember your second container in the compose file has the name db and it runs on port 3306 even though we did not expose a port to the host)
 
-set your database name to nextcloud
+Set your database name to nextcloud
 
-set your database user to nextcloud
+Set your database user to nextcloud
 
-set your database password to the password in your env file
+Set your database password to the password in your env file
