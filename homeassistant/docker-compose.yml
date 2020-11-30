@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+    homeassistant:
+      container_name: homeassistant
+      restart: unless-stopped
+      image: homeassistant/home-assistant:latest
+      volumes:
+        - ./config:/config
+        - /etc/localtime:/etc/localtime:ro
+      ports:
+        - "9101:8123"
+      privileged: true
+      environment:
+        - TZ=ZA
