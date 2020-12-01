@@ -5,6 +5,7 @@ services:
      image: mysql:5.7
      volumes:
        - db_data:/var/lib/mysql
+       - ./mysql_config:/etc/mysql/conf.d
      restart: unless-stopped
      environment:
        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
