@@ -1,5 +1,5 @@
 # udemy_docker
-Repository for my Udemy docker course
+Repository for my Udemy docker course. My course is not active anymore. I am keeping all the resources in here and adding new things as time goes on.
 
 ### Welcome
 
