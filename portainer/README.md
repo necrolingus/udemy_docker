@@ -5,3 +5,5 @@ docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/d
 #### By default only the portainer instance that connects to that host first, will be allowed to connect to it
 
 #### Port 9000 is used for the GUI, and port 8000 is used for comms
+
+#### Now add these servers to your portainer web interface.
