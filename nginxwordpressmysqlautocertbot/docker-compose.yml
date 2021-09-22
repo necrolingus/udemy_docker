@@ -16,7 +16,7 @@ services:
    wordpress:
      depends_on:
        - mysql_wordpress
-     image: wordpress:5.1.1-fpm-alpine
+     image: wordpress:5.8.1-fpm-alpine
      restart: unless-stopped
      environment:
        WORDPRESS_DB_HOST: mysql_wordpress:3306
